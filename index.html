@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Endandit — Website, geregeld</title>
+  <meta name="description" content="Een professionele website voor je bedrijf, gebouwd door Edd — onze speciaal getrainde AI website-bouwer. Stuur je wensen, ontvang een preview en offerte. Geen gedoe." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg" sizes="any" />
+  <meta name="theme-color" content="#2e8a8a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://endandit.nl" />
+  <meta property="og:title"       content="Endandit — Website, geregeld" />
+  <meta property="og:description" content="Een professionele website voor je bedrijf, gebouwd door Edd — onze speciaal getrainde AI website-bouwer. Stuur je wensen, ontvang een preview en offerte." />
+  <meta name="twitter:card"       content="summary" />
+  <meta name="twitter:title"      content="Endandit — Website, geregeld" />
+  <meta name="twitter:description" content="Een professionele website voor je bedrijf, gebouwd door Edd — onze speciaal getrainde AI website-bouwer. Stuur je wensen, ontvang een preview en offerte." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:        #0d0d0d;
+      --white:        #ffffff;
+      --grey:         #737373;
+      --light:        #f7f6f4;
+      --rule:         #e8e6e1;
+      --accent:       #2e8a8a;
+      --accent-light: #e6f4f4;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 17px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Header ── */
+    header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.25rem 2rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    .logo .e { color: var(--black); }
+
+    .logo-sub {
+      font-size: 0.8rem;
+      color: var(--grey);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4.5rem;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    /* ── Atmosphere ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 92% 8%,  rgba(46,138,138,0.09) 0%, transparent 100%),
+        radial-gradient(ellipse 55% 45% at 8%  72%,  rgba(46,138,138,0.07) 0%, transparent 100%),
+        radial-gradient(ellipse 40% 35% at 60% 90%,  rgba(46,138,138,0.05) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 180px;
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar        { width: 4px; }
+    ::-webkit-scrollbar-track  { background: transparent; }
+    ::-webkit-scrollbar-thumb  { background: var(--accent-light); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+    * { scrollbar-width: thin; scrollbar-color: var(--accent-light) transparent; }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--grey);
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--grey);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Features ── */
+    .features {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 3rem;
+    }
+
+    @media (max-width: 560px) {
+      .features { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .feature-num {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature strong {
+      display: block;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature span {
+      color: var(--grey);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ── Price ── */
+    .price-section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
+    }
+
+    @media (max-width: 600px) {
+      .price-section { flex-direction: column; gap: 2rem; }
+    }
+
+    .price-display { flex-shrink: 0; }
+
+    .price-main {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .price-period {
+      font-size: 0.9rem;
+      color: var(--grey);
+      margin-top: 0.35rem;
+    }
+
+    .price-annual {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.01em;
+    }
+
+    .price-includes { flex: 1; }
+
+    .price-includes p {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.9rem;
+    }
+
+    .price-includes ul { list-style: none; }
+
+    .price-includes li {
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .price-includes li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .price-includes li:last-child { border-bottom: none; }
+
+    /* ── Contact ── */
+    .contact-section {
+      padding: 3.5rem 0 5rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-sub {
+      color: var(--grey);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 520px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: var(--white);
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input:focus, textarea:focus { border-color: var(--accent); }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    button {
+      padding: 0.875rem 2rem;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      justify-self: start;
+    }
+
+    button:hover { opacity: 0.85; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .status {
+      font-size: 0.9rem;
+      color: var(--grey);
+      min-height: 1.4rem;
+    }
+
+    .status.ok  { color: #2d7a4f; }
+    .status.err { color: #c0392b; }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 1.75rem 2rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--grey);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--grey); text-decoration: none; }
+    footer a:hover { color: var(--black); }
+
+    /* ── Fade-in ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="e">E</span>n<span class="e">d</span>an<span class="e">d</span>it
+  </div>
+  <span class="logo-sub">— website, geregeld</span>
+</header>
+
+<div class="hero">
+  <div class="hero-content" id="heroContent">
+    <h1>Jouw website.<br><em>Zonder gedoe.</em></h1>
+    <p class="lead">
+      Een professionele website voor je bedrijf, gebouwd door Edd — onze speciaal getrainde AI website-bouwer.
+      Aanpassingen regel je via e-mail. Hosting en SSL zijn inbegrepen.
+      Geen dashboard, geen techniek, geen gedoe.
+    </p>
+  </div>
+</div>
+
+<main>
+
+  <div class="features">
+    <div class="feature fade-in">
+      <div class="feature-num">01</div>
+      <strong>Live binnen een week</strong>
+      <span>Stuur je informatie op — wij leveren een complete, professionele website.</span>
+    </div>
+    <div class="feature fade-in">
+      <div class="feature-num">02</div>
+      <strong>Aanpassingen via e-mail</strong>
+      <span>Mail wat je wilt veranderen. Binnen een dag geregeld. Geen dashboard te leren.</span>
+    </div>
+    <div class="feature fade-in">
+      <div class="feature-num">03</div>
+      <strong>Hosting en SSL inbegrepen</strong>
+      <span>Je site staat veilig online, certificaat automatisch vernieuwd.</span>
+    </div>
+    <div class="feature fade-in">
+      <div class="feature-num">04</div>
+      <strong>Alles via Edd</strong>
+      <span>Wat er ook moet veranderen — adres, tekst, foto, nieuwe dienst — mail het Edd en het staat er in.</span>
+    </div>
+  </div>
+
+  <div class="price-section fade-in">
+    <div class="price-display">
+      <div class="price-main">€200</div>
+      <div class="price-period">per jaar</div>
+      <div class="price-annual">hosting + service, vanaf jaar 2</div>
+    </div>
+    <div class="price-includes">
+      <p>Zo werkt het</p>
+      <ul>
+        <li>Stuur je wensen op — Edd bouwt een preview</li>
+        <li>Je ontvangt een offerte: een fractie van wat een bureau vraagt</li>
+        <li>Akkoord met de preview? Betaal, en je site gaat live</li>
+        <li>Het eerste jaar betaal je alleen de bouw — geen abonnement</li>
+        <li>Hosting, SSL en Edd's service inbegrepen</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contact-section fade-in">
+    <h2>Interesse?</h2>
+    <p class="contact-sub">Stuur een bericht — we nemen binnen een dag contact op.</p>
+
+    <form id="contact">
+      <input type="text"  name="name"    placeholder="Naam"                        required />
+      <input type="email" name="email"   placeholder="E-mailadres"                 required />
+      <input type="text"  name="subject" placeholder="Bedrijfsnaam of website" />
+      <textarea           name="message" placeholder="Vertel kort wat je nodig hebt." required></textarea>
+      <button type="submit">Stuur bericht</button>
+      <p class="status" id="status"></p>
+    </form>
+  </div>
+
+</main>
+
+<footer>
+  <span style="color:var(--accent)"><span style="color:var(--black)">E</span>n<span style="color:var(--black)">d</span>an<span style="color:var(--black)">d</span>it</span>
+  <a href="mailto:edd@endandit.nl">edd@endandit.nl</a>
+</footer>
+
+<script>
+  // ── Parallax ──
+  const heroContent = document.getElementById('heroContent');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (heroContent) heroContent.style.transform = `translateY(${y * 0.10}px)`;
+  }, { passive: true });
+
+  // ── Fade-in on scroll ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Contact form ──
+  const form   = document.getElementById('contact');
+  const status = document.getElementById('status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    status.textContent = '';
+    status.className = 'status';
+
+    const data = {
+      name:    form.name.value.trim(),
+      email:   form.email.value.trim(),
+      subject: form.subject.value.trim(),
+      message: form.message.value.trim(),
+    };
+
+    try {
+      const res = await fetch('https://pitr.network/3.14/contact/Clode', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(data),
+      });
+      if (res.ok) {
+        status.textContent = 'Bericht ontvangen — we nemen snel contact op.';
+        status.className = 'status ok';
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      status.textContent = 'Er ging iets mis. Mail ons direct op edd@endandit.nl.';
+      status.className = 'status err';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
